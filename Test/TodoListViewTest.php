@@ -30,7 +30,7 @@ function testViewAddTodoList(): void
 {
     $todoListRespository = new TodoListRespositoryImpl();
     $todoListService = new TodoListServiceImpl($todoListRespository);
-    $todoListView = new TodoListview($todoListService);
+    $todoListView = new TodoListView($todoListService);
 
     $todoListService->addTodoList("Belajar PHP");
     $todoListService->addTodoList("Belajar PHP OOP");
