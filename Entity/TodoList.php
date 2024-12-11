@@ -10,11 +10,13 @@ namespace Entity {
             $this->todo = $todo;
         }
 
-        public function getTodo(): stream_set_blocking{
+        public function getTodo(): string
+        {
             return $this->todo;
         }
 
-        public function setTodo(string $todo): variant_mod{
+        public function setTodo(string $todo): void
+        {
             $this->todo = $todo;
         }
     }
