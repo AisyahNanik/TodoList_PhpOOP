@@ -1,10 +1,13 @@
 <?php
+
 require_once __DIR__ . "/../Entity/TodoList.php";
 require_once __DIR__ . "/../Respository/TodoListRespository.php";
 require_once __DIR__ . "/../Service/TodoListService.php";
+
 use Entity\TodoList;
 use Service\TodoListServiceImpl;
 use Respository\TodoListRespositoryImpl;
+
 function testShowTodoList(): void {
     $todoListRespository = new TodoListRespositoryImpl();
     $todoListRespository->todoList[1] = new TodoList("Belajar PHP");
@@ -12,13 +15,15 @@ function testShowTodoList(): void {
     $todoListService = new TodoListServiceImpl($todoListRespository);
     $todoListService->showTodoList();
 }
-function testAddTodoList():void {
+
+function testAddTodoList(): void {
     $todoListRespository = new TodoListRespositoryImpl();
     $todoListService = new TodoListServiceImpl($todoListRespository);
     $todoListService->addTodoList("Belajar PHP");
     $todoListService->addTodoList("Belajar PHP OOP");
     $todoListService->showtodoList();
 }
+
 function testRemoveTodoList(): void {
     $todoListRespository = new TodoListRespositoryImpl();
     $todoListService = new TodoListServiceImpl($todoListRespository);
@@ -30,6 +35,7 @@ function testRemoveTodoList(): void {
     $todoListService->removeTodoList(4);
     $todoListService->showTodoList();
 }
+
 testShowtodoList();
 testAddTodoList();
 testRemoveTodoList();

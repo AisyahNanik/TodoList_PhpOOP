@@ -42,11 +42,12 @@ function testViewAddTodoList(): void
     $todoListService->showTodoList();
 }
 
-function testViewAddTodoList(): void 
+function testViewRemoveTodoList(): void 
 {
     $todoListRespository = new TodoListRespositoryImpl();
     $todoListService = new TodoListServiceImpl($todoListRespository);
     $todoListView = new TodoListView($todoListService);
+    
     $todoListService->addTodoList("Belajar PHP");
     $todoListService->addTodoList("Belajar PHP OOP");
     $todoListService->addtodoList("Belajar PHP Database");
