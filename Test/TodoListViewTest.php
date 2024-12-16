@@ -1,21 +1,21 @@
 <?php
 
 require_once __DIR__ . '/../Entity/TodoList.php';
-require_once __DIR__ . '/../Respository/TodoListRespository.php';
+require_once __DIR__ . '/../Repository/TodoListRepository.php';
 require_once __DIR__ . '/../Service/TodoListService.php';
 require_once __DIR__ . '/../View/TodoListView.php';
 require_once __DIR__ . '/../Helper/InputHelper.php';
 
 use \Entity\TodoList;
-use \Respository\TodoListRespositoryImpl;
+use \Repository\TodoListRepositoryImpl;
 use \Service\TodoListServiceImpl;
 use \view\TodoListView;
 
 function testViewShowTodoList(): void 
 {
 
-    $todoListRespository = new TodoListRespositoryImpl();
-    $todoListService = new TodoListServiceImpl($todoListRespository);
+    $todoListRepository = new TodoListRepositoryImpl();
+    $todoListService = new TodoListServiceImpl($todoListRepository);
     $todoListView = new TodoListView($todoListService);
 
     $todoListService->addTodolist("Belajar PHP");
@@ -28,8 +28,8 @@ function testViewShowTodoList(): void
 
 function testViewAddTodoList(): void 
 {
-    $todoListRespository = new TodoListRespositoryImpl();
-    $todoListService = new TodoListServiceImpl($todoListRespository);
+    $todoListRepository = new TodoListRepositoryImpl();
+    $todoListService = new TodoListServiceImpl($todoListRepository);
     $todoListView = new TodoListView($todoListService);
 
     $todoListService->addTodoList("Belajar PHP");
@@ -44,13 +44,13 @@ function testViewAddTodoList(): void
 
 function testViewRemoveTodoList(): void 
 {
-    $todoListRespository = new TodoListRespositoryImpl();
-    $todoListService = new TodoListServiceImpl($todoListRespository);
+    $todoListRepository = new TodoListRepositoryImpl();
+    $todoListService = new TodoListServiceImpl($todoListRepository);
     $todoListView = new TodoListView($todoListService);
     
     $todoListService->addTodoList("Belajar PHP");
     $todoListService->addTodoList("Belajar PHP OOP");
-    $todoListService->addtodoList("Belajar PHP Database");
+    $todoListService->addTodoList("Belajar PHP Database");
     $todoListService->showTodoList();
     $todoListView->removeTodoList();
     $todoListService->showTodoList();
